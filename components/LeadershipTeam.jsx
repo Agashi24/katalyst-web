@@ -42,13 +42,15 @@ export default function LeadershipTeam() {
           {team.map((member, i) => (
             <div
               key={i}
-              className={`animate-on-scroll stagger-${i + 1} text-center group`}
+              // Tambahkan class 'glow-card' di sini untuk efek hover border glow
+              className={`animate-on-scroll stagger-${i + 1} text-center group glow-card rounded-2xl p-6 bg-white/[0.03]`}
             >
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-blue-900/20 border-2 border-transparent group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-blue-500/10 group-hover:scale-105">
+              <div className="relative w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-blue-900/20 border-2 border-transparent group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-blue-500/10">
                 <img
                   src={member.img}
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  // Tambahkan class 'img-zoom' di sini untuk efek zoom gambar
+                  className="w-full h-full object-cover img-zoom"
                 />
               </div>
               <h3 className="text-lg font-semibold text-white">

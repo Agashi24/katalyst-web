@@ -90,10 +90,10 @@ export default function ProcessSection() {
                   ✓
                 </div>
                 <div>
-                  <h4 class="font-semibold text-sm text-white">
+                  <h4 className="font-semibold text-sm text-white">
                     Terverifikasi & Terpercaya
                   </h4>
-                  <p class="text-xs text-neutral-400">
+                  <p className="text-xs text-neutral-400">
                     Proses diawasi oleh konsultan bersertifikat
                   </p>
                 </div>

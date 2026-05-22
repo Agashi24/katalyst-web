@@ -17,7 +17,7 @@ export default function Capabilities() {
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="animate-on-scroll stagger-1 tilt-card relative bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.05] group">
+          <div className="animate-on-scroll stagger-1 glow-card bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.05] group">
             <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition">
               <Calculator className="w-7 h-7 text-blue-400" />
             </div>
