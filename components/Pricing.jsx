@@ -1,138 +1,233 @@
 "use client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
 export default function Pricing() {
   useScrollReveal();
+
+  const services = [
+    {
+      title: "Katalyst Academy",
+      subtitle: "Capability development designed for real business execution.",
+      price: "5",
+      period: "Program",
+      isPopular: false,
+      scope: [
+        "Finance & Accounting Training",
+        "Tax Practical Workshop",
+        "Business Case Consulting",
+      ],
+      benefits: ["Improved team capability", "Better execution consistency"],
+      bestFor: "Teams needing skill upgrades",
+    },
+    {
+      title: "Tax & Compliance Advisory",
+      subtitle:
+        "Ensuring compliance while optimizing tax efficiency and minimizing business risk.",
+      price: "5",
+      period: "Month",
+      isPopular: false,
+      scope: [
+        "Tax Review & Health Check",
+        "Corporate Tax Planning",
+        "Compliance Filing (SPT)",
+      ],
+      benefits: ["Reduced tax risks", "Improved compliance confidence"],
+      bestFor: "Companies needing sustainable compliance",
+    },
+    {
+      title: "Business Performance Advisory",
+      subtitle:
+        "Turning operational complexity into measurable business performance.",
+      price: "8",
+      period: "Month",
+      isPopular: false,
+      scope: [
+        "Business Process Assessment",
+        "Operational Efficiency Analysis",
+        "Strategic Planning",
+      ],
+      benefits: [
+        "Improved operational efficiency",
+        "Enhanced decision framework",
+      ],
+      bestFor: "Business owners seeking structured growth",
+    },
+    {
+      title: "Finance Transformation Advisory",
+      subtitle:
+        "Helping businesses build structured, scalable, and decision-ready financial systems.",
+      price: "10",
+      period: "Month",
+      isPopular: false,
+      scope: [
+        "Financial Reporting Structuring",
+        "Cash Flow Monitoring System",
+        "Financial System Integration",
+      ],
+      benefits: ["Better financial visibility", "Scalable financial structure"],
+      bestFor: "Businesses shifting to data-driven management",
+    },
+    {
+      title: "Executive Partner Program",
+      subtitle: "Strategic advisory support for top management and founders.",
+      price: "15",
+      period: "Month",
+      isPopular: true,
+      scope: [
+        "Continuous Consulting",
+        "Strategic Discussion",
+        "Business Problem Solving",
+      ],
+      benefits: ["Expert perspective on demand", "No additional overhead cost"],
+      bestFor: "Founders needing long-term strategic support",
+    },
+  ];
+
   return (
     <section
       id="harga"
       className="py-20 md:py-28 relative overflow-hidden bg-[#080818]"
     >
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none animate-float-glow"></div>
-      <div
-        className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-[100px] pointer-events-none animate-float-glow"
-        style={{ animationDelay: "4s" }}
-      ></div>
+      {/* Background Glows */}
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
           <span className="animate-on-scroll text-xs font-semibold text-blue-400 uppercase tracking-widest">
-            Paket & Harga
+            Services & Pricing
           </span>
           <h2 className="animate-on-scroll text-3xl md:text-5xl font-bold mt-3 tracking-tight">
-            Pilih Paket <span className="text-blue-500">Anda</span>
+            KATALYST <span className="text-blue-500">SERVICES & PRICING</span>
           </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
-          {/* Starter */}
-          <div className="animate-on-scroll stagger-1 tilt-card relative bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 flex flex-col">
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-neutral-300">
-                Starter
-              </h3>
-              <p className="text-xs text-neutral-500 mt-1">
-                Untuk UMKM & startup
-              </p>
-            </div>
-            <div className="mb-6">
-              <span className="text-xs text-neutral-400">Rp</span>
-              {/* Harga diubah menjadi 3 jt */}
-              <span className="text-4xl font-bold ml-1">3 JT</span>
-              <span className="text-sm text-neutral-400">/bulan</span>
-            </div>
-            <div className="space-y-3 flex-1 mb-8">
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="text-neutral-300">Pelaporan SPT Bulanan</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="text-neutral-300">Konsultasi 2x/bulan</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <XCircle className="w-4 h-4 text-neutral-700 shrink-0" />
-                <span className="text-neutral-600">Tax Planning</span>
-              </div>
-            </div>
-            <button className="w-full py-3.5 rounded-full font-medium text-sm transition bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105">
-              Pilih Starter
-            </button>
-          </div>
 
-          {/* Business */}
-          <div className="animate-on-scroll stagger-2 tilt-card relative rounded-2xl p-8 flex flex-col bg-gradient-to-b from-blue-600/20 to-blue-900/10 border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20 md:scale-110 z-10 shimmer-effect">
-            <span className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-[11px] font-bold px-4 py-1.5 text-center uppercase tracking-widest">
-              Paling Populer 🔥
-            </span>
-            <div className="mb-6 mt-4">
-              <h3 className="text-xl font-semibold text-white">Business</h3>
-              <p className="text-xs text-blue-200 mt-1">
-                Untuk perusahaan berkembang
-              </p>
-            </div>
-            <div className="mb-6">
-              <span className="text-xs text-blue-300">Rp</span>
-              {/* Harga diubah menjadi 10 jt */}
-              <span className="text-4xl font-bold ml-1 text-white">10 JT</span>
-              <span className="text-sm text-blue-300">/bulan</span>
-            </div>
-            <div className="space-y-3 flex-1 mb-8">
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white">Semua fitur Starter</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white">Tax Planning Strategis</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white">Konsultasi Unlimited</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white">Dedicated Account Manager</span>
-              </div>
-            </div>
-            <button className="w-full py-4 rounded-full font-semibold text-sm transition bg-blue-600 hover:bg-blue-700 text-white animate-breath-glow hover:scale-105 flex items-center justify-center gap-2">
-              Pilih Business <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, i) => (
+            <div
+              key={i}
+              className={`animate-on-scroll stagger-${i + 1} relative flex flex-col rounded-2xl p-8 transition-all duration-300 group ${
+                service.isPopular
+                  ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20 lg:scale-105 z-10 hover:border-blue-400/80"
+                  : "bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 hover:bg-white/[0.05]"
+              }`}
+            >
+              {/* Most Popular Badge */}
+              {service.isPopular && (
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[11px] font-bold px-6 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/40 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" /> Paling Populer 🔥
+                </span>
+              )}
 
-          {/* Enterprise */}
-          <div className="animate-on-scroll stagger-3 tilt-card relative bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 flex flex-col">
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-neutral-300">
-                Enterprise
-              </h3>
-              <p className="text-xs text-neutral-500 mt-1">
-                Solusi lengkap skala besar
-              </p>
-            </div>
-            <div className="mb-6">
-              <span className="text-xs text-neutral-400">Rp</span>
-              {/* Harga diubah menjadi 20 jt */}
-              <span className="text-4xl font-bold ml-1">20 JT</span>
-              <span className="text-sm text-neutral-400">/bulan</span>
-            </div>
-            <div className="space-y-3 flex-1 mb-8">
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="text-neutral-300">Semua fitur Business</span>
+              {/* Card Header */}
+              <div className="flex items-start gap-4 mb-6">
+                <img
+                  src="/web-app-manifest-512x512.png"
+                  alt="Katalyst Logo"
+                  className="w-10 h-10 rounded-lg object-contain bg-white/10 p-1.5 shrink-0"
+                />
+                <div>
+                  <h3
+                    className={`text-xl font-semibold ${service.isPopular ? "text-white" : "text-neutral-200"}`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    {service.subtitle}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="text-neutral-300">Transfer Pricing</span>
+
+              {/* Pricing */}
+              <div className="mb-6 pb-6 border-b border-white/10">
+                <div className="flex items-baseline gap-1">
+                  <span
+                    className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
+                  >
+                    Starting from Rp
+                  </span>
+                  <span
+                    className={`text-4xl font-bold ${service.isPopular ? "text-white" : "text-neutral-100"}`}
+                  >
+                    {service.price} JT
+                  </span>
+                  <span
+                    className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
+                  >
+                    / {service.period}
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="text-neutral-300">Priority Support 24/7</span>
+
+              {/* Content Lists */}
+              <div className="space-y-4 flex-1 mb-8 text-sm">
+                <div>
+                  <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
+                    Scope of Support
+                  </h4>
+                  <ul className="space-y-2">
+                    {service.scope.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-neutral-400"
+                      >
+                        <CheckCircle2
+                          className={`w-4 h-4 shrink-0 mt-0.5 ${service.isPopular ? "text-blue-400" : "text-blue-500/50"}`}
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
+                    Key Benefits
+                  </h4>
+                  <ul className="space-y-2">
+                    {service.benefits.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-neutral-400"
+                      >
+                        <CheckCircle2
+                          className={`w-4 h-4 shrink-0 mt-0.5 ${service.isPopular ? "text-blue-400" : "text-blue-500/50"}`}
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white/5 p-3 rounded-lg mt-4">
+                  <span className="text-xs font-semibold text-blue-400">
+                    Best For:{" "}
+                  </span>
+                  <span className="text-xs text-neutral-300">
+                    {service.bestFor}
+                  </span>
+                </div>
               </div>
+
+              {/* CTA Button */}
+              <a
+                href="https://wa.me/628561510888" // Anda bisa ganti dengan link WhatsApp dinamis nanti
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3.5 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 mt-auto ${
+                  service.isPopular
+                    ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30 hover:scale-105"
+                    : "bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105"
+                }`}
+              >
+                Pilih {service.title.split(" ")[0]}{" "}
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
-            <button className="w-full py-3.5 rounded-full font-medium text-sm transition bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105">
-              Pilih Enterprise
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </section>
