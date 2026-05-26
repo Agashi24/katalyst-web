@@ -17,7 +17,7 @@ export default function Footer() {
                 className="w-9 h-9 rounded-lg object-contain"
               />
               <span className="text-xl font-semibold tracking-tight text-white">
-                Katalyst<span className="text-blue-500">Partner</span>
+                Katalyst<span className="text-white-500">Partner</span>
               </span>
             </a>
             <p className="text-neutral-500 text-sm leading-relaxed">
