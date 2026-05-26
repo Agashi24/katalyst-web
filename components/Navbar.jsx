@@ -8,21 +8,31 @@ export default function Navbar() {
   useScrollReveal();
   const [isOpen, setIsOpen] = useState(false);
 
+  // Fungsi smooth scroll untuk FAQ
+  const handleScrollToFAQ = (e) => {
+    e.preventDefault();
+    const faqSection = document.getElementById("faq");
+    if (faqSection) {
+      faqSection.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false); // Tutup menu mobile jika terbuka
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0a0a1a]/80 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 shrink-0">
-          {/* Logo diganti dengan img dari folder public */}
           <img
             src="/favicon-96x96.png"
             alt="Katalyst Partner Logo"
             className="w-9 h-9 rounded-lg object-contain"
           />
           <span className="text-lg font-semibold tracking-tight">
-            Katalyst<span className="text-white-500">Partner</span>
+            Katalyst<span className="text-blue-500">Partner</span>
           </span>
         </a>
 
+        {/* Menu Desktop */}
         <div className="hidden md:flex items-center gap-8 text-sm text-neutral-400">
           <a href="#about" className="hover:text-white transition">
             About
@@ -35,6 +45,14 @@ export default function Navbar() {
           </a>
           <a href="#harga" className="hover:text-white transition">
             Pricing
+          </a>
+          {/* Link FAQ dengan fungsi scroll kustom */}
+          <a
+            href="#faq"
+            onClick={handleScrollToFAQ}
+            className="hover:text-white transition"
+          >
+            FAQ
           </a>
         </div>
 
@@ -117,6 +135,14 @@ export default function Navbar() {
             className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
           >
             Pricing
+          </a>
+          {/* Link FAQ Mobile dengan fungsi scroll kustom */}
+          <a
+            href="#faq"
+            onClick={handleScrollToFAQ}
+            className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
+          >
+            FAQ
           </a>
           <div className="pt-2">
             <a

@@ -13,6 +13,8 @@ export default function Pricing() {
       price: "5",
       period: "Program",
       isPopular: false,
+      waLink:
+        "https://wa.me/628561510888?text=Halo%20Katalyst,%20saya%20tertarik%20dengan%20Katalyst%20Academy",
       scope: [
         "Finance & Accounting Training",
         "Tax Practical Workshop",
@@ -28,6 +30,8 @@ export default function Pricing() {
       price: "5",
       period: "Month",
       isPopular: false,
+      waLink:
+        "https://wa.me/628561510888?text=Halo%20Katalyst,%20saya%20tertarik%20dengan%20Tax%20%26%20Compliance%20Advisory",
       scope: [
         "Tax Review & Health Check",
         "Corporate Tax Planning",
@@ -43,6 +47,8 @@ export default function Pricing() {
       price: "8",
       period: "Month",
       isPopular: false,
+      waLink:
+        "https://wa.me/628561510888?text=Halo%20Katalyst,%20saya%20tertarik%20dengan%20Business%20Performance%20Advisory",
       scope: [
         "Business Process Assessment",
         "Operational Efficiency Analysis",
@@ -61,6 +67,8 @@ export default function Pricing() {
       price: "10",
       period: "Month",
       isPopular: false,
+      waLink:
+        "https://wa.me/628561510888?text=Halo%20Katalyst,%20saya%20tertarik%20dengan%20Finance%20Transformation%20Advisory",
       scope: [
         "Financial Reporting Structuring",
         "Cash Flow Monitoring System",
@@ -75,6 +83,8 @@ export default function Pricing() {
       price: "15",
       period: "Month",
       isPopular: true,
+      waLink:
+        "https://wa.me/628561510888?text=Halo%20Katalyst,%20saya%20tertarik%20dengan%20Executive%20Partner%20Program",
       scope: [
         "Continuous Consulting",
         "Strategic Discussion",
@@ -90,12 +100,9 @@ export default function Pricing() {
       id="harga"
       className="py-20 md:py-28 relative overflow-hidden bg-[#080818]"
     >
-      {/* Background Glows */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <span className="animate-on-scroll text-xs font-semibold text-blue-400 uppercase tracking-widest">
             Services & Pricing
@@ -104,22 +111,14 @@ export default function Pricing() {
             KATALYST <span className="text-blue-500">SERVICES & PRICING</span>
           </h2>
         </div>
-
-        {/* Cards Container */}
         <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, i) => (
             <div
               key={i}
-              className={`animate-on-scroll stagger-${i + 1} relative flex flex-col rounded-2xl p-8 transition-all duration-300 group w-full sm:max-w-[380px] ${
-                service.isPopular
-                  ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 z-10 hover:border-blue-400/80 [animation:glow-pulse_3s_ease-in-out_infinite]"
-                  : "bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 hover:bg-white/[0.05]"
-              }`}
+              className={`animate-on-scroll stagger-${i + 1} relative flex flex-col rounded-2xl p-8 transition-all duration-300 group w-full sm:max-w-[380px] ${service.isPopular ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20 z-10 hover:border-blue-400/80 [animation:glow-pulse_3s_ease-in-out_infinite]" : "bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 hover:bg-white/[0.05]"}`}
             >
-              {/* Efek Khusus Card Paling Populer */}
               {service.isPopular && (
                 <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-                  {/* Efek Shimmer / Glitter */}
                   <div
                     className="absolute inset-0 opacity-20"
                     style={{
@@ -129,8 +128,6 @@ export default function Pricing() {
                       animation: "shimmer 3s infinite linear",
                     }}
                   ></div>
-
-                  {/* Efek Partikel Mengambang */}
                   <span
                     className="absolute w-1 h-1 bg-white rounded-full"
                     style={{
@@ -178,20 +175,15 @@ export default function Pricing() {
                   ></span>
                 </div>
               )}
-
-              {/* Most Popular Badge */}
               {service.isPopular && (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[11px] font-bold px-6 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/40 flex items-center gap-2 whitespace-nowrap z-20">
                   <Sparkles className="w-4 h-4" /> Paling Populer 🔥
                 </span>
               )}
-
-              {/* Card Content (diberi z-10 agar di atas shimmer) */}
               <div className="relative z-10 flex flex-col h-full">
-                {/* Card Header */}
                 <div className="flex flex-col items-center text-center mb-6">
                   <img
-                    src="/logokatalyst.png"
+                    src="/web-app-manifest-512x512.png"
                     alt="Katalyst Logo"
                     className="w-12 h-12 rounded-lg object-contain mb-4 shrink-0"
                   />
@@ -204,8 +196,6 @@ export default function Pricing() {
                     {service.subtitle}
                   </p>
                 </div>
-
-                {/* Pricing */}
                 <div className="mb-6 pb-6 border-b border-white/10 flex items-baseline justify-center gap-1 text-center">
                   <span
                     className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
@@ -223,8 +213,6 @@ export default function Pricing() {
                     / {service.period}
                   </span>
                 </div>
-
-                {/* Content Lists */}
                 <div className="space-y-4 flex-1 mb-8 text-sm">
                   <div>
                     <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
@@ -244,7 +232,6 @@ export default function Pricing() {
                       ))}
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
                       Key Benefits
@@ -263,7 +250,6 @@ export default function Pricing() {
                       ))}
                     </ul>
                   </div>
-
                   <div className="bg-white/5 p-3 rounded-lg mt-4">
                     <span className="text-xs font-semibold text-blue-400">
                       Best For:{" "}
@@ -274,9 +260,9 @@ export default function Pricing() {
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* TOMBOL CTA DENGAN WHATSAPP LINK DINAMIS */}
                 <a
-                  href="https://wa.me/628561510888"
+                  href={service.waLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-3.5 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 mt-auto ${
@@ -285,7 +271,7 @@ export default function Pricing() {
                       : "bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105"
                   }`}
                 >
-                  Pilih Paket {service.title.split(" ")[0]}{" "}
+                  Pilih {service.title.split(" ")[0]}{" "}
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
