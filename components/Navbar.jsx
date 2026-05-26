@@ -1,22 +1,56 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Navbar() {
   useScrollReveal();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  // Fungsi smooth scroll untuk FAQ
+  // Intersection Observer untuk mendeteksi section mana yang sedang dilihat
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      // Trigger saat section berada di 50% tengah layar
+      { rootMargin: "-50% 0px -50% 0px" },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleScrollToFAQ = (e) => {
     e.preventDefault();
     const faqSection = document.getElementById("faq");
     if (faqSection) {
       faqSection.scrollIntoView({ behavior: "smooth" });
     }
-    setIsOpen(false); // Tutup menu mobile jika terbuka
+    setIsOpen(false);
   };
+
+  // Daftar link navigasi agar lebih rapi
+  const navLinks = [
+    { href: "#about", label: "About", onClick: () => setIsOpen(false) },
+    {
+      href: "#capabilities",
+      label: "Capabilities",
+      onClick: () => setIsOpen(false),
+    },
+    { href: "#team", label: "Team", onClick: () => setIsOpen(false) },
+    { href: "#harga", label: "Pricing", onClick: () => setIsOpen(false) },
+    { href: "#faq", label: "FAQ", onClick: handleScrollToFAQ },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0a0a1a]/80 border-b border-white/5">
@@ -33,27 +67,21 @@ export default function Navbar() {
         </a>
 
         {/* Menu Desktop */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-neutral-400">
-          <a href="#about" className="hover:text-white transition">
-            About
-          </a>
-          <a href="#capabilities" className="hover:text-white transition">
-            Capabilities
-          </a>
-          <a href="#team" className="hover:text-white transition">
-            Team
-          </a>
-          <a href="#harga" className="hover:text-white transition">
-            Pricing
-          </a>
-          {/* Link FAQ dengan fungsi scroll kustom */}
-          <a
-            href="#faq"
-            onClick={handleScrollToFAQ}
-            className="hover:text-white transition"
-          >
-            FAQ
-          </a>
+        <div className="hidden md:flex items-center gap-8 text-sm">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={link.onClick}
+              className={`transition-colors duration-300 ${
+                activeSection === link.href.substring(1)
+                  ? "text-white font-semibold" // State Aktif
+                  : "text-neutral-400 hover:text-white" // State Default
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
         <a
@@ -108,42 +136,20 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-4 space-y-1 text-sm">
-          <a
-            href="#about"
-            onClick={() => setIsOpen(false)}
-            className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
-          >
-            About
-          </a>
-          <a
-            href="#capabilities"
-            onClick={() => setIsOpen(false)}
-            className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
-          >
-            Capabilities
-          </a>
-          <a
-            href="#team"
-            onClick={() => setIsOpen(false)}
-            className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
-          >
-            Team
-          </a>
-          <a
-            href="#harga"
-            onClick={() => setIsOpen(false)}
-            className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
-          >
-            Pricing
-          </a>
-          {/* Link FAQ Mobile dengan fungsi scroll kustom */}
-          <a
-            href="#faq"
-            onClick={handleScrollToFAQ}
-            className="block text-neutral-300 hover:text-white hover:bg-white/5 py-2.5 rounded-lg transition"
-          >
-            FAQ
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={link.onClick}
+              className={`block py-2.5 rounded-lg transition ${
+                activeSection === link.href.substring(1)
+                  ? "text-white bg-white/5 font-semibold" // State Aktif Mobile
+                  : "text-neutral-300 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
           <div className="pt-2">
             <a
               href="#harga"
