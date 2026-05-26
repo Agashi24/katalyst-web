@@ -285,7 +285,7 @@ export default function Pricing() {
                       : "bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105"
                   }`}
                 >
-                  Pilih {service.title.split(" ")[0]}{" "}
+                  Pilih Paket {service.title.split(" ")[0]}{" "}
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
