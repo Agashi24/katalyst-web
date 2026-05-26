@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { ShieldCheck, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   useScrollReveal();
@@ -10,9 +11,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-white" />
-              </div>
+              <img
+                src="/favicon-96x96.png"
+                alt="Katalyst Partner Logo"
+                className="w-9 h-9 rounded-lg object-contain"
+              />
               <span className="text-xl font-semibold tracking-tight text-white">
                 Katalyst<span className="text-blue-500">Partner</span>
               </span>
@@ -20,23 +23,15 @@ export default function Footer() {
             <p className="text-neutral-500 text-sm leading-relaxed">
               PT Katalyst Partner Consulting.
               <br />
-              One System. One Partner.
+              One System. One Partner. One Solution.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Hubungi Kami</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
+              {/* Nomor +62 856 sudah dihapus */}
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-blue-400" />
-                <a
-                  href="tel:+628561510888"
-                  className="hover:text-white transition"
-                >
-                  +62 856 - 1510 - 888
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-blue-400" />
+                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
                 <a
                   href="tel:+6282227090808"
                   className="hover:text-white transition"
@@ -44,9 +39,13 @@ export default function Footer() {
                   +62 822 - 2709 - 0808
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-blue-400" />
-                Jakarta, Indonesia
+              <li className="flex items-start gap-3">
+                {/* shrink-0 memastikan ikon tidak mengecil, items-start agar teks sejajar rapi saat turun ke baris baru */}
+                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                <span>
+                  Jl. Casa, Grand Palace Kemayoran, Kb. Kosong, Kec Kemayoran,
+                  Kota Jakarta Pusat
+                </span>
               </li>
             </ul>
           </div>
@@ -106,6 +105,19 @@ export default function Footer() {
                     viewBox="0 0 24 24"
                   >
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 10.86 4.46v-7.15a8.16 8.16 0 0 0 5.58 2.18V11.2a4.85 4.85 0 0 1-3.77-1.77V6.69h3.77z" />
+                  </svg>
+                </a>
+                {/* Threads */}
+                <a
+                  href="#"
+                  className="text-neutral-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.068V11.5c0-3.517.85-6.37 2.527-8.482C5.88.705 8.636-.024 12.2 0c3.57.024 6.33 1.205 8.181 3.509 1.644 2.057 2.495 4.911 2.495 8.43v.5c0 3.518-.85 6.372-2.527 8.484-1.852 2.315-4.608 3.544-8.163 3.577zM12.212 2h-.019C9.204 2.019 7.036 2.95 5.786 4.77 4.415 6.7 3.7 9.394 3.7 12.5v.568c0 3.114.715 5.808 2.087 7.739C7.04 22.63 9.21 23.565 12.216 23.58h.019c3.004-.015 5.172-.95 6.427-2.78 1.374-1.933 2.09-4.627 2.09-7.741V12.5c0-3.114-.716-5.807-2.088-7.738C17.409 2.94 15.24 2.015 12.212 2zm-.035 17.15h-.017c-2.332 0-4.074-.682-5.18-2.027-1.06-1.29-1.595-3.15-1.595-5.53v-.546c0-2.38.535-4.24 1.595-5.53C8.086 4.173 9.83 3.5 12.16 3.5h.018c2.33 0 4.074.672 5.18 2.017 1.06 1.29 1.596 3.15 1.596 5.53v.546c0 2.38-.535 4.24-1.596 5.53-1.106 1.345-2.85 2.027-5.181 2.027zm-.017-14.15c-1.94 0-3.38.537-4.278 1.596-.878 1.037-1.324 2.614-1.324 4.69v.546c0 2.076.446 3.653 1.324 4.69.898 1.06 2.338 1.596 4.278 1.596h.018c1.94 0 3.38-.537 4.278-1.596.878-1.037 1.324-2.614 1.324-4.69V11.5c0-2.076-.446-3.653-1.324-4.69C16.544 3.753 15.104 3.3 13.164 3.3h-.004zM12 16.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm0-5.5c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z" />
                   </svg>
                 </a>
               </div>

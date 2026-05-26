@@ -8,22 +8,23 @@ export default function LeadershipTeam() {
     {
       name: "Bryan Hitipeuw, S.Ak",
       role: "Director Lead Consultant",
-      img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      // Ubah path ke folder public Anda
+      img: "/images/team/bryan.jpg", 
     },
     {
       name: "Brenda Fiona, S.E",
       role: "Senior Tax Consultant",
-      img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      img: "/images/team/brenda.jpg",
     },
     {
       name: "Archimedes Daely, S.Sl",
       role: "Business Development",
-      img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      img: "/images/team/archimedes.jpg",
     },
     {
       name: "Fiorela Sofian, S.HI",
       role: "Digital Marketing",
-      img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      img: "/images/team/fiorela.jpg",
     },
   ];
 
@@ -42,14 +43,12 @@ export default function LeadershipTeam() {
           {team.map((member, i) => (
             <div
               key={i}
-              // Tambahkan class 'glow-card' di sini untuk efek hover border glow
               className={`animate-on-scroll stagger-${i + 1} text-center group glow-card rounded-2xl p-6 bg-white/[0.03]`}
             >
               <div className="relative w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-blue-900/20 border-2 border-transparent group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-blue-500/10">
                 <img
                   src={member.img}
                   alt={member.name}
-                  // Tambahkan class 'img-zoom' di sini untuk efek zoom gambar
                   className="w-full h-full object-cover img-zoom"
                 />
               </div>

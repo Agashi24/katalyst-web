@@ -36,7 +36,8 @@ export default function Pricing() {
             </div>
             <div className="mb-6">
               <span className="text-xs text-neutral-400">Rp</span>
-              <span className="text-4xl font-bold ml-1">3.5 jt</span>
+              {/* Harga diubah menjadi 3 jt */}
+              <span className="text-4xl font-bold ml-1">3 jt</span>
               <span className="text-sm text-neutral-400">/bulan</span>
             </div>
             <div className="space-y-3 flex-1 mb-8">
@@ -71,7 +72,8 @@ export default function Pricing() {
             </div>
             <div className="mb-6">
               <span className="text-xs text-blue-300">Rp</span>
-              <span className="text-4xl font-bold ml-1 text-white">8.5 jt</span>
+              {/* Harga diubah menjadi 10 jt */}
+              <span className="text-4xl font-bold ml-1 text-white">10 jt</span>
               <span className="text-sm text-blue-300">/bulan</span>
             </div>
             <div className="space-y-3 flex-1 mb-8">
@@ -109,7 +111,8 @@ export default function Pricing() {
             </div>
             <div className="mb-6">
               <span className="text-xs text-neutral-400">Rp</span>
-              <span className="text-4xl font-bold ml-1">17 jt</span>
+              {/* Harga diubah menjadi 20 jt */}
+              <span className="text-4xl font-bold ml-1">20 jt</span>
               <span className="text-sm text-neutral-400">/bulan</span>
             </div>
             <div className="space-y-3 flex-1 mb-8">
