@@ -1,14 +1,15 @@
-"use client"; // Tambahkan baris ini di paling atas!
+"use client";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import WeWorkWith from "@/components/WeWorkWith";
+import ClientsPartners from "@/components/ClientsPartners"; // Nama import diubah
 import ProcessSection from "@/components/ProcessSection";
 import Capabilities from "@/components/Capabilities";
 import LeadershipTeam from "@/components/LeadershipTeam";
 import KatalystAcademy from "@/components/KatalystAcademy";
 import Pricing from "@/components/Pricing";
+import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
@@ -16,7 +17,6 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BackToTop from "@/components/BackToTop";
 import Marquee from "@/components/Marquee";
 
-// Lazy Load: Komponen berat hanya dimuat setelah halaman utama selesai
 import dynamic from "next/dynamic";
 const ParticleBackground = dynamic(
   () => import("@/components/ParticleBackground"),
@@ -37,12 +37,13 @@ export default function Home() {
       </div>
       <Marquee />
       <About />
-      <WeWorkWith />
+      <ClientsPartners /> {/* Nama komponen diubah di sini */}
       <ProcessSection />
       <Capabilities />
       <LeadershipTeam />
       <KatalystAcademy />
       <Pricing />
+      <Testimonials />
       <FAQ />
       <CallToAction />
       <Footer />

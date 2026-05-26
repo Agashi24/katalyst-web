@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   useScrollReveal();
   return (
-    <footer className="border-t border-white/5 bg-[#060612] pt-16 pb-8">
+    <footer className="border-t border-white/5 bg-[#060612] pt-16 pb-28 md:pb-8">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
@@ -20,11 +20,19 @@ export default function Footer() {
                 Katalyst<span className="text-blue-500">Partner</span>
               </span>
             </a>
-            <p className="text-neutral-500 text-sm leading-relaxed">
+            <p className="text-neutral-500 text-sm leading-relaxed mb-4">
               PT Katalyst Partner Consulting.
               <br />
               One System. One Partner.
             </p>
+
+            {/* Badge Sertifikasi IKC (BARU) */}
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
+              <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
+              <span className="text-xs text-neutral-400 font-medium">
+                Terdaftar resmi di IKPI
+              </span>
+            </div>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Hubungi Kami</h4>
