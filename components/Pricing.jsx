@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
@@ -104,14 +105,14 @@ export default function Pricing() {
           </h2>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Cards Container - Menggunakan Flex agar 2 card terakhir otomatis ke tengah */}
+        <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, i) => (
             <div
               key={i}
-              className={`animate-on-scroll stagger-${i + 1} relative flex flex-col rounded-2xl p-8 transition-all duration-300 group ${
+              className={`animate-on-scroll stagger-${i + 1} relative flex flex-col rounded-2xl p-8 transition-all duration-300 group w-full sm:max-w-[380px] ${
                 service.isPopular
-                  ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20 lg:scale-105 z-10 hover:border-blue-400/80"
+                  ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20 z-10 hover:border-blue-400/80"
                   : "bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 hover:bg-white/[0.05]"
               }`}
             >
@@ -122,44 +123,42 @@ export default function Pricing() {
                 </span>
               )}
 
-              {/* Card Header */}
-              <div className="flex items-start gap-4 mb-6">
+              {/* Card Header - Rata Tengah */}
+              <div className="flex flex-col items-center text-center mb-6">
+                {/* Logo tanpa background putih */}
                 <img
                   src="/web-app-manifest-512x512.png"
                   alt="Katalyst Logo"
-                  className="w-10 h-10 rounded-lg object-contain bg-white/10 p-1.5 shrink-0"
+                  className="w-12 h-12 rounded-lg object-contain mb-4 shrink-0"
                 />
-                <div>
-                  <h3
-                    className={`text-xl font-semibold ${service.isPopular ? "text-white" : "text-neutral-200"}`}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                    {service.subtitle}
-                  </p>
-                </div>
+                <h3
+                  className={`text-xl font-semibold ${service.isPopular ? "text-white" : "text-neutral-200"}`}
+                >
+                  {service.title}
+                </h3>
+                {/* Subtitle Justify */}
+                <p className="text-xs text-neutral-400 mt-2 leading-relaxed text-justify hyphens-auto">
+                  {service.subtitle}
+                </p>
               </div>
 
-              {/* Pricing */}
-              <div className="mb-6 pb-6 border-b border-white/10">
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
-                  >
-                    Starting from Rp
-                  </span>
-                  <span
-                    className={`text-4xl font-bold ${service.isPopular ? "text-white" : "text-neutral-100"}`}
-                  >
-                    {service.price} JT
-                  </span>
-                  <span
-                    className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
-                  >
-                    / {service.period}
-                  </span>
-                </div>
+              {/* Pricing - Rata Tengah */}
+              <div className="mb-6 pb-6 border-b border-white/10 flex items-baseline justify-center gap-1 text-center">
+                <span
+                  className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
+                >
+                  Starting from Rp
+                </span>
+                <span
+                  className={`text-4xl font-bold ${service.isPopular ? "text-white" : "text-neutral-100"}`}
+                >
+                  {service.price} JT
+                </span>
+                <span
+                  className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
+                >
+                  / {service.period}
+                </span>
               </div>
 
               {/* Content Lists */}
@@ -214,7 +213,7 @@ export default function Pricing() {
 
               {/* CTA Button */}
               <a
-                href="https://wa.me/628561510888" // Anda bisa ganti dengan link WhatsApp dinamis nanti
+                href="https://wa.me/628561510888"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-3.5 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 mt-auto ${
