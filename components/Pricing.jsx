@@ -105,126 +105,190 @@ export default function Pricing() {
           </h2>
         </div>
 
-        {/* Cards Container - Menggunakan Flex agar 2 card terakhir otomatis ke tengah */}
+        {/* Cards Container */}
         <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, i) => (
             <div
               key={i}
               className={`animate-on-scroll stagger-${i + 1} relative flex flex-col rounded-2xl p-8 transition-all duration-300 group w-full sm:max-w-[380px] ${
                 service.isPopular
-                  ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20 z-10 hover:border-blue-400/80"
+                  ? "bg-gradient-to-b from-blue-600/20 to-indigo-900/10 border-2 border-blue-500/50 z-10 hover:border-blue-400/80 [animation:glow-pulse_3s_ease-in-out_infinite]"
                   : "bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/40 hover:bg-white/[0.05]"
               }`}
             >
+              {/* Efek Khusus Card Paling Populer */}
+              {service.isPopular && (
+                <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                  {/* Efek Shimmer / Glitter */}
+                  <div
+                    className="absolute inset-0 opacity-20"
+                    style={{
+                      background:
+                        "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%)",
+                      backgroundSize: "200% 100%",
+                      animation: "shimmer 3s infinite linear",
+                    }}
+                  ></div>
+
+                  {/* Efek Partikel Mengambang */}
+                  <span
+                    className="absolute w-1 h-1 bg-white rounded-full"
+                    style={{
+                      top: "20%",
+                      left: "15%",
+                      animation: "float-particle 4s infinite ease-out",
+                      animationDelay: "0s",
+                    }}
+                  ></span>
+                  <span
+                    className="absolute w-1.5 h-1.5 bg-blue-300 rounded-full"
+                    style={{
+                      top: "60%",
+                      left: "85%",
+                      animation: "float-particle 5s infinite ease-out",
+                      animationDelay: "1s",
+                    }}
+                  ></span>
+                  <span
+                    className="absolute w-1 h-1 bg-indigo-200 rounded-full"
+                    style={{
+                      top: "75%",
+                      left: "25%",
+                      animation: "float-particle 4.5s infinite ease-out",
+                      animationDelay: "2s",
+                    }}
+                  ></span>
+                  <span
+                    className="absolute w-2 h-2 bg-blue-400/50 rounded-full"
+                    style={{
+                      top: "40%",
+                      left: "60%",
+                      animation: "float-particle 6s infinite ease-out",
+                      animationDelay: "0.5s",
+                    }}
+                  ></span>
+                  <span
+                    className="absolute w-1 h-1 bg-white rounded-full"
+                    style={{
+                      top: "10%",
+                      left: "70%",
+                      animation: "float-particle 5.5s infinite ease-out",
+                      animationDelay: "1.5s",
+                    }}
+                  ></span>
+                </div>
+              )}
+
               {/* Most Popular Badge */}
               {service.isPopular && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[11px] font-bold px-6 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/40 flex items-center gap-2">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[11px] font-bold px-6 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/40 flex items-center gap-2 whitespace-nowrap z-20">
                   <Sparkles className="w-4 h-4" /> Paling Populer 🔥
                 </span>
               )}
 
-              {/* Card Header - Rata Tengah */}
-              <div className="flex flex-col items-center text-center mb-6">
-                {/* Logo tanpa background putih */}
-                <img
-                  src="/web-app-manifest-512x512.png"
-                  alt="Katalyst Logo"
-                  className="w-12 h-12 rounded-lg object-contain mb-4 shrink-0"
-                />
-                <h3
-                  className={`text-xl font-semibold ${service.isPopular ? "text-white" : "text-neutral-200"}`}
-                >
-                  {service.title}
-                </h3>
-                {/* Subtitle Justify */}
-                <p className="text-xs text-neutral-400 mt-2 leading-relaxed text-justify hyphens-auto">
-                  {service.subtitle}
-                </p>
-              </div>
-
-              {/* Pricing - Rata Tengah */}
-              <div className="mb-6 pb-6 border-b border-white/10 flex items-baseline justify-center gap-1 text-center">
-                <span
-                  className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
-                >
-                  Starting from Rp
-                </span>
-                <span
-                  className={`text-4xl font-bold ${service.isPopular ? "text-white" : "text-neutral-100"}`}
-                >
-                  {service.price} JT
-                </span>
-                <span
-                  className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
-                >
-                  / {service.period}
-                </span>
-              </div>
-
-              {/* Content Lists */}
-              <div className="space-y-4 flex-1 mb-8 text-sm">
-                <div>
-                  <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
-                    Scope of Support
-                  </h4>
-                  <ul className="space-y-2">
-                    {service.scope.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-2 text-neutral-400"
-                      >
-                        <CheckCircle2
-                          className={`w-4 h-4 shrink-0 mt-0.5 ${service.isPopular ? "text-blue-400" : "text-blue-500/50"}`}
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              {/* Card Content (diberi z-10 agar di atas shimmer) */}
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Card Header */}
+                <div className="flex flex-col items-center text-center mb-6">
+                  <img
+                    src="/web-app-manifest-512x512.png"
+                    alt="Katalyst Logo"
+                    className="w-12 h-12 rounded-lg object-contain mb-4 shrink-0"
+                  />
+                  <h3
+                    className={`text-xl font-semibold ${service.isPopular ? "text-white" : "text-neutral-200"}`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className="text-xs text-neutral-400 mt-2 leading-relaxed text-center">
+                    {service.subtitle}
+                  </p>
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
-                    Key Benefits
-                  </h4>
-                  <ul className="space-y-2">
-                    {service.benefits.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-2 text-neutral-400"
-                      >
-                        <CheckCircle2
-                          className={`w-4 h-4 shrink-0 mt-0.5 ${service.isPopular ? "text-blue-400" : "text-blue-500/50"}`}
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-white/5 p-3 rounded-lg mt-4">
-                  <span className="text-xs font-semibold text-blue-400">
-                    Best For:{" "}
+                {/* Pricing */}
+                <div className="mb-6 pb-6 border-b border-white/10 flex items-baseline justify-center gap-1 text-center">
+                  <span
+                    className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
+                  >
+                    Starting from Rp
                   </span>
-                  <span className="text-xs text-neutral-300">
-                    {service.bestFor}
+                  <span
+                    className={`text-4xl font-bold ${service.isPopular ? "text-white" : "text-neutral-100"}`}
+                  >
+                    {service.price} JT
+                  </span>
+                  <span
+                    className={`text-sm ${service.isPopular ? "text-blue-300" : "text-neutral-400"}`}
+                  >
+                    / {service.period}
                   </span>
                 </div>
-              </div>
 
-              {/* CTA Button */}
-              <a
-                href="https://wa.me/628561510888"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full py-3.5 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 mt-auto ${
-                  service.isPopular
-                    ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30 hover:scale-105"
-                    : "bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105"
-                }`}
-              >
-                Pilih {service.title.split(" ")[0]}{" "}
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                {/* Content Lists */}
+                <div className="space-y-4 flex-1 mb-8 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
+                      Scope of Support
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.scope.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-neutral-400"
+                        >
+                          <CheckCircle2
+                            className={`w-4 h-4 shrink-0 mt-0.5 ${service.isPopular ? "text-blue-400" : "text-blue-500/50"}`}
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-neutral-300 mb-2 uppercase tracking-wider text-xs">
+                      Key Benefits
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.benefits.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-neutral-400"
+                        >
+                          <CheckCircle2
+                            className={`w-4 h-4 shrink-0 mt-0.5 ${service.isPopular ? "text-blue-400" : "text-blue-500/50"}`}
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/5 p-3 rounded-lg mt-4">
+                    <span className="text-xs font-semibold text-blue-400">
+                      Best For:{" "}
+                    </span>
+                    <span className="text-xs text-neutral-300">
+                      {service.bestFor}
+                    </span>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <a
+                  href="https://wa.me/628561510888"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3.5 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 mt-auto ${
+                    service.isPopular
+                      ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30 hover:scale-105"
+                      : "bg-white/5 hover:bg-white/10 border border-white/10 text-white hover:scale-105"
+                  }`}
+                >
+                  Pilih {service.title.split(" ")[0]}{" "}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           ))}
         </div>

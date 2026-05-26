@@ -345,3 +345,44 @@ body {
 .img-zoom:hover {
   transform: scale(1.05);
 }
+
+/* Animasi Outer Glow Berdenyut */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(59, 130, 246, 0.4),
+      0 0 30px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(59, 130, 246, 0.6),
+      0 0 50px rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* Animasi Glitter / Shimmer Berjalan */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animasi Partikel Mengambang */
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80px) scale(0);
+    opacity: 0;
+  }
+}
