@@ -191,7 +191,7 @@ export default function Pricing() {
                 {/* Card Header */}
                 <div className="flex flex-col items-center text-center mb-6">
                   <img
-                    src="/web-app-manifest-512x512.png"
+                    src="/logokatalyst.png"
                     alt="Katalyst Logo"
                     className="w-12 h-12 rounded-lg object-contain mb-4 shrink-0"
                   />
