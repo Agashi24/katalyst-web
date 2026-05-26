@@ -17,19 +17,18 @@ export default function Footer() {
                 className="w-9 h-9 rounded-lg object-contain"
               />
               <span className="text-xl font-semibold tracking-tight text-white">
-                Katalyst<span className="text-white-500">Partner</span>
+                Katalyst<span className="text-blue-500">Partner</span>
               </span>
             </a>
             <p className="text-neutral-500 text-sm leading-relaxed">
               PT Katalyst Partner Consulting.
               <br />
-              One System. One Partner. One Solution.
+              One System. One Partner.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Hubungi Kami</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              {/* Nomor +62 856 sudah dihapus */}
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-blue-400 shrink-0" />
                 <a
@@ -40,7 +39,6 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                {/* shrink-0 memastikan ikon tidak mengecil, items-start agar teks sejajar rapi saat turun ke baris baru */}
                 <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <span>
                   Jl. Casa, Grand Palace Kemayoran, Kb. Kosong, Kec Kemayoran,
@@ -57,7 +55,9 @@ export default function Footer() {
               <div className="flex items-center gap-4">
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://www.instagram.com/katalystpartner"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
                 >
                   <svg
@@ -70,7 +70,9 @@ export default function Footer() {
                 </a>
                 {/* LinkedIn */}
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/katalystpartner/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
                 >
                   <svg
@@ -84,6 +86,8 @@ export default function Footer() {
                 {/* Twitter/X */}
                 <a
                   href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
                 >
                   <svg
@@ -96,7 +100,9 @@ export default function Footer() {
                 </a>
                 {/* TikTok */}
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@katalystpartner"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
                 >
                   <svg
@@ -109,7 +115,9 @@ export default function Footer() {
                 </a>
                 {/* Threads */}
                 <a
-                  href="#"
+                  href="https://www.threads.com/@katalystpartner"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
                 >
                   <svg
