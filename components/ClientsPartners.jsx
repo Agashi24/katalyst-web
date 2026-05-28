@@ -1,6 +1,34 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { UserCheck, Sprout, Building2, Gem } from "lucide-react";
+
+const partners = [
+  { name: "PT Maju Bersama", logo: "/partners/auntieannes.png", initial: "AE" },
+  { name: "Global Indo Jaya", logo: "/partners/aw.png", initial: "AW" },
+  {
+    name: "Surya Energi Group",
+    logo: "/partners/burgerking.png",
+    initial: "BK",
+  },
+  {
+    name: "Nusantara Finance",
+    logo: "/partners/krispykreme.png",
+    initial: "KK",
+  },
+  {
+    name: "Karya Digital Tech",
+    logo: "/partners/papajohn.png",
+    initial: "PJ",
+  },
+  {
+    name: "Sentosa Manufacturing",
+    logo: "/partners/subway.png",
+    initial: "SW",
+  },
+  { name: "Artha Mulia Corp", logo: "/partners/wendys.png", initial: "W" },
+  { name: "Bumi Persada Group", logo: "/partners/domino.png", initial: "D" },
+];
 
 export default function ClientsPartners() {
   useScrollReveal();
@@ -16,7 +44,7 @@ export default function ClientsPartners() {
             We Work <span className="text-blue-500">With</span>
           </h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           <div className="animate-on-scroll stagger-1 tilt-card bg-white/[0.03] border border-white/[0.06] hover:border-blue-500/30 rounded-2xl p-7 transition-all duration-300 hover:bg-white/[0.05]">
             <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
               <UserCheck className="w-6 h-6 text-blue-400" />
@@ -61,25 +89,41 @@ export default function ClientsPartners() {
 
         {/* Logo Partner / Trusted By */}
         <div className="animate-on-scroll border-t border-white/5 pt-16">
-          <h3 className="text-center text-sm font-semibold text-neutral-500 uppercase tracking-widest mb-10">
+          <h3 className="text-center text-sm font-semibold text-neutral-500 uppercase tracking-widest mb-12">
             Dipercaya oleh Perusahaan Terkemuka
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-            {/* Ganti src dengan path logo Anda di folder public/images/partners/ */}
-            <div className="text-neutral-600 font-bold text-lg tracking-widest opacity-40 hover:opacity-80 transition">
-              PT MAJU
-            </div>
-            <div className="text-neutral-600 font-bold text-lg tracking-widest opacity-40 hover:opacity-80 transition">
-              TECHCO
-            </div>
-            <div className="text-neutral-600 font-bold text-lg tracking-widest opacity-40 hover:opacity-80 transition">
-              GLOBAL INDO
-            </div>
-            <div className="text-neutral-600 font-bold text-lg tracking-widest opacity-40 hover:opacity-80 transition">
-              SURYA GROUP
-            </div>
-            <div className="text-neutral-600 font-bold text-lg tracking-widest opacity-40 hover:opacity-80 transition">
-              NUSANTARA
+
+          {/* Wrapper Infinite Scroll - TAMBAHKAN overflow-hidden di sini */}
+          <div className="relative group overflow-hidden">
+            {/* Fade Kiri */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-[#080818] to-transparent z-10 pointer-events-none"></div>
+            {/* Fade Kanan */}
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-[#080818] to-transparent z-10 pointer-events-none"></div>
+
+            {/* Container Scroll - TAMBAHKAN gap-8 agar tidak terlalu rapat */}
+            <div className="flex animate-scroll-partners gap-8">
+              {[...partners, ...partners].map((partner, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center gap-3 shrink-0 w-44 md:w-52 py-2"
+                >
+                  <div className="w-full h-20 rounded-xl bg-white/[0.03] border border-white/[0.08] p-4 flex items-center justify-center transition-all duration-300 hover:border-blue-500/40 hover:bg-white/[0.08] hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer relative overflow-hidden group/card">
+                    {/* Fallback Jika Gambar Error: Tampilkan Inisial */}
+                    <div className="absolute inset-0 flex items-center justify-center text-xl font-bold text-neutral-700 z-0">
+                      {partner.initial}
+                    </div>
+
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      classNaiyaaame="w-full h-full object-contain grayscale opacity-50 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-300 relative z-10"
+                    />
+                  </div>
+                  <span className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-300 text-center font-medium tracking-wide">
+                    {partner.name}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

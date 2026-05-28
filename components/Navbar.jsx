@@ -62,7 +62,7 @@ export default function Navbar() {
             className="w-9 h-9 rounded-lg object-contain"
           />
           <span className="text-lg font-semibold tracking-tight">
-            Katalyst<span className="text-blue-500">Partner</span>
+            Katalyst<span className="text-white-500">Partner</span>
           </span>
         </a>
 

@@ -17,7 +17,7 @@ export default function Footer() {
                 className="w-9 h-9 rounded-lg object-contain"
               />
               <span className="text-xl font-semibold tracking-tight text-white">
-                Katalyst<span className="text-blue-500">Partner</span>
+                Katalyst<span className="text-white-500">Partner</span>
               </span>
             </a>
             <p className="text-neutral-500 text-sm leading-relaxed mb-4">
@@ -25,12 +25,11 @@ export default function Footer() {
               <br />
               One System. One Partner.
             </p>
-
-            {/* Badge Sertifikasi IKC (BARU) */}
+            {/* Badge IKC */}
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
               <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
               <span className="text-xs text-neutral-400 font-medium">
-                Terdaftar resmi di IKPI
+                Terdaftar resmi di IKIP
               </span>
             </div>
           </div>
@@ -141,10 +140,28 @@ export default function Footer() {
             <p className="text-neutral-400 text-sm">@katalystpartner</p>
           </div>
         </div>
+
+        {/* Bagian Bawah Footer: Copyright dan Link Legal */}
         <div className="border-t border-white/5 pt-8 text-center">
           <p className="text-xs text-neutral-600">
             © 2025 PT Katalyst Partner Consulting. Hak Cipta Dilindungi.
           </p>
+          {/* Link Legal Baru */}
+          <div className="flex justify-center items-center gap-4 mt-3 text-xs text-neutral-500">
+            <a
+              href="/privacy-policy"
+              className="hover:text-neutral-300 transition"
+            >
+              Privacy Policy
+            </a>
+            <span>•</span>
+            <a
+              href="/terms-of-service"
+              className="hover:text-neutral-300 transition"
+            >
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>

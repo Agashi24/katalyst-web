@@ -386,3 +386,19 @@ body {
     opacity: 0;
   }
 }
+@keyframes scroll-partners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-partners {
+  animation: scroll-partners 30s linear infinite;
+}
+
+.animate-scroll-partners:hover {
+  animation-play-state: paused;
+}
