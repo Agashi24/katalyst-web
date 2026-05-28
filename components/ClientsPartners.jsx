@@ -103,13 +103,13 @@ export default function ClientsPartners() {
                   key={i}
                   className="flex flex-col items-center gap-3 shrink-0 w-44 md:w-52 py-2"
                 >
-                  {/* Kotak Logo (Ukuran normal, tapi padding dikecilkan agar logo memenuhi kotak) */}
+                  {/* Kotak Logo */}
                   <div className="w-full h-24 md:h-28 rounded-xl bg-white/[0.03] border border-white/[0.08] p-2 flex items-center justify-center transition-all duration-300 hover:border-blue-500/40 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer group/card">
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      // Teknik Grayscale to Color: Default abu-abu (grayscale opacity-50), hover berwarna penuh (grayscale-0 opacity-100)
-                      className="w-full h-full object-contain grayscale opacity-50 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-300"
+                      // Di HP berwarna penuh, di Desktop baru ada efek Grayscale to Color
+                      className="w-full h-full object-contain md:grayscale md:opacity-50 md:group-hover/card:grayscale-0 md:group-hover/card:opacity-100 transition-all duration-300"
                     />
                   </div>
 
