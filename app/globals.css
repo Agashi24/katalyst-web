@@ -395,29 +395,10 @@ body {
   }
 }
 
-/* Animasi Infinite Scroll untuk Logo Partner */
-@keyframes scroll-partners {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Kecepatan untuk Handphone (Lebih cepat) */
 .animate-scroll-partners {
-  animation: scroll-partners 15s linear infinite;
+  animation: scroll-partners 30s linear infinite;
 }
 
-/* Kecepatan untuk Desktop (Sedikit lebih lambat & megah) */
-@media (min-width: 768px) {
-  .animate-scroll-partners {
-    animation: scroll-partners 25s linear infinite;
-  }
-}
-
-/* Pause animasi saat hover agar pengunjung bisa melihat logo dengan jelas */
 .animate-scroll-partners:hover {
   animation-play-state: paused;
 }
