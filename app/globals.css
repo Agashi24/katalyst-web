@@ -323,15 +323,15 @@ body {
 
 /* Kecepatan Handphone + Akselerasi GPU */
 .animate-scroll-partners {
-  animation: scroll-partners 25s linear infinite; /* 25 detik pas untuk HP */
+  animation: scroll-partners 50s linear infinite; /* Durasi di-double dari 25s ke 50s */
   will-change: transform;
-  width: max-content; /* PENTING: Memaksa lebar container presisi agar loop -50% tidak loncat */
+  width: max-content;
 }
 
 /* Kecepatan Desktop */
 @media (min-width: 768px) {
   .animate-scroll-partners {
-    animation: scroll-partners 40s linear infinite; /* Desktop lebih lambat dan megah */
+    animation: scroll-partners 80s linear infinite; /* Durasi di-double dari 40s ke 80s */
   }
 }
 
