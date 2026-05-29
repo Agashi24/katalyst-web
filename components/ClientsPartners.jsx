@@ -94,30 +94,33 @@ export default function ClientsPartners() {
           </h3>
 
           <div className="relative group overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-[#080818] to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-[#080818] to-transparent z-10 pointer-events-none"></div>
+            {/* Fade Hitam di tepi - DIPERKECIL di HP agar tidak menelan logo */}
+            <div className="absolute left-0 top-0 bottom-0 w-6 md:w-24 bg-gradient-to-r from-[#080818] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-6 md:w-24 bg-gradient-to-l from-[#080818] to-transparent z-10 pointer-events-none"></div>
 
+            {/* Container Scroll */}
             <div className="flex animate-scroll-partners gap-8">
-              {[...partners, ...partners].map((partner, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center gap-3 shrink-0 w-44 md:w-52 py-2"
-                >
-                  {/* Kotak Logo */}
-                  <div className="w-full h-24 md:h-28 rounded-xl bg-white/[0.03] border border-white/[0.08] p-2 flex items-center justify-center transition-all duration-300 hover:border-blue-500/40 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer group/card">
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      // Di HP berwarna penuh, di Desktop baru ada efek Grayscale to Color
-                      className="w-full h-full object-contain md:grayscale md:opacity-50 md:group-hover/card:grayscale-0 md:group-hover/card:opacity-100 transition-all duration-300"
-                    />
-                  </div>
+              {/* Duplikasi 4x agar lintasan sangat panjang, loop di HP tidak akan terputus */}
+              {[...partners, ...partners, ...partners, ...partners].map(
+                (partner, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-center gap-3 shrink-0 w-40 md:w-52 py-2"
+                  >
+                    <div className="w-full h-24 md:h-28 rounded-xl bg-white/[0.03] border border-white/[0.08] p-2 flex items-center justify-center transition-all duration-300 hover:border-blue-500/40 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer group/card">
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className="w-full h-full object-contain md:grayscale md:opacity-50 md:group-hover/card:grayscale-0 md:group-hover/card:opacity-100 transition-all duration-300"
+                      />
+                    </div>
 
-                  <span className="text-xs text-neutral-500 group-hover/card:text-neutral-300 transition-colors duration-300 text-center font-medium tracking-wide">
-                    {partner.name}
-                  </span>
-                </div>
-              ))}
+                    <span className="text-xs text-neutral-500 group-hover/card:text-neutral-300 transition-colors duration-300 text-center font-medium tracking-wide">
+                      {partner.name}
+                    </span>
+                  </div>
+                ),
+              )}
             </div>
           </div>
         </div>

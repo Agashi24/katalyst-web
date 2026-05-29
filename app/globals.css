@@ -386,19 +386,32 @@ body {
     opacity: 0;
   }
 }
+
+/* Animasi Infinite Scroll untuk Logo Partner */
 @keyframes scroll-partners {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(
+      -50%
+    ); /* Gerakkan sejauh setengah dari total lintasan */
   }
 }
 
+/* Kecepatan untuk Handphone (Cukup stabil untuk membaca) */
 .animate-scroll-partners {
   animation: scroll-partners 30s linear infinite;
 }
 
+/* Kecepatan untuk Desktop (Lebih lambat & megah) */
+@media (min-width: 768px) {
+  .animate-scroll-partners {
+    animation: scroll-partners 45s linear infinite;
+  }
+}
+
+/* Pause animasi saat hover */
 .animate-scroll-partners:hover {
   animation-play-state: paused;
 }
