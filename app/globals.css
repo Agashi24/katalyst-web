@@ -309,6 +309,9 @@ body {
 /* =========================================
    INFINITE SCROLL LOGO PARTNER (OPTIMIZED)
    ========================================= */
+/* =========================================
+   INFINITE SCROLL LOGO PARTNER (OPTIMIZED)
+   ========================================= */
 @keyframes scroll-partners {
   0% {
     transform: translateX(0);
@@ -318,16 +321,17 @@ body {
   }
 }
 
-/* Kecepatan Handphone + Akselerasi GPU agar tidak loncat */
+/* Kecepatan Handphone + Akselerasi GPU */
 .animate-scroll-partners {
-  animation: scroll-partners 20s linear infinite;
-  will-change: transform; /* WAJIB ADA agar HP tidak patah-patah/lag */
+  animation: scroll-partners 25s linear infinite; /* 25 detik pas untuk HP */
+  will-change: transform;
+  width: max-content; /* PENTING: Memaksa lebar container presisi agar loop -50% tidak loncat */
 }
 
 /* Kecepatan Desktop */
 @media (min-width: 768px) {
   .animate-scroll-partners {
-    animation: scroll-partners 30s linear infinite;
+    animation: scroll-partners 40s linear infinite; /* Desktop lebih lambat dan megah */
   }
 }
 
