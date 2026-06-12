@@ -23,7 +23,7 @@ export default function Footer() {
             <p className="text-neutral-500 text-sm leading-relaxed mb-4">
               PT Katalyst Partner Consulting.
               <br />
-              One System. One Partner.
+              One System. One Partner. One Solution
             </p>
             {/* Badge IKC */}
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
