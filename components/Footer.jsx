@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2 rounded-lg">
               <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
               <span className="text-xs text-neutral-400 font-medium">
-                Terdaftar resmi di IKIP
+                Trusted
               </span>
             </div>
           </div>
