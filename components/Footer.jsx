@@ -144,7 +144,7 @@ export default function Footer() {
         {/* Bagian Bawah Footer: Copyright dan Link Legal */}
         <div className="border-t border-white/5 pt-8 text-center">
           <p className="text-xs text-neutral-600">
-            © 2025 PT Katalyst Partner Consulting. Hak Cipta Dilindungi.
+            © 2026 PT Katalyst Partner Consulting. Hak Cipta Dilindungi.
           </p>
           {/* Link Legal Baru */}
           <div className="flex justify-center items-center gap-4 mt-3 text-xs text-neutral-500">
